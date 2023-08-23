@@ -1,0 +1,70 @@
+{% load static %}
+{% block body %}
+{% include 'recruiter_header.html' %}
+{% for message in messages %}
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message !</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+
+<br>
+<div class=" container" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7); transition: 0.3s; border-radius: 5px;height: auto;width: 600px;" >
+    <br>
+    <div class="signup-form">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Edit Job Detail</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Job_title" value={{job.job_title}} required="required">
+            </div>        	
+             
+            <div class="form-group">
+                <input type="text" class="form-control" name="salary" value={{job.salary}} required="required">
+            </div> 
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><label>Start Date: <span style="color:red; font-size: small;">{{job.s_date}}</span></label><input type="date" class="form-control" name="sdate" placeholder="Start Date" ></div>
+                    <div class="col"> <label>Last Date: <span style="color:red; font-size: small;">{{job.e_date}}</span></label><input type="date" class="form-control" name="edate" placeholder="Last Date" ></div>
+                </div>        	
+            </div>
+           
+            <div class="form-group">
+                <input type="text" class="form-control" name="location" value={{job.location}} required="required">
+            </div> 
+            <div class="form-group">
+                <input type="text" class="form-control" name="education" value={{job.education}} required="required">
+            </div> 
+            <div class="form-group">
+                <input type="text" class="form-control" name="skill" value={{job.skill}} required="required">
+            </div> 
+            <div class="form-group">
+                <input type="number" class="form-control" name="experince" value={{job.experince}} required="required">
+            </div> 
+            
+            <div class="form-group">
+                <div class="row">
+                <div class="col"><label>Discription:</label><textarea  class="form-control" name="discription" value={{job.discription}} required="required"></textarea>
+                </div></div>
+                </div>
+            <div class="btn btn-primary ">
+                <img src="{{job.img.url}}"  alt="avatar"
+              class="rounded-circle img-fluid" style="width: 60px;">
+                <label class="form-label text-white m-1" for="customFile1">Change Company Logo</label>
+                <input type="file" class="form-control d-none" name="image" id="customFile1" />
+                </div>
+                <br><br>
+    
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Save</button>
+                </div>
+        </form>
+       
+    </div>
+    <br>
+</div>
+    
+
+{% endblock  %}

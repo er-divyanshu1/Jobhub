@@ -1,0 +1,137 @@
+{% load static %}
+{% block body %}
+{% include 'user_header.html' %}
+<!-- Hero 5376089917 Section -->
+
+<div class="jumbotron">
+    <div class="container text-center">
+      <h1>Job Detail </h1>      
+      <p>You can read job detail..</p>
+      <a href="{% url 'user_profile' %}" class="btn btn-primary btn-lg">Profile</a>
+    </div> 
+  </div>
+<br>
+
+    <section style="background-color: #eee;">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card mb-4">
+              <div class="card-body text-center">
+                <img src="{{job.img.url}}" alt="avatar"
+                  class="rounded-circle img-fluid" style="width: 150px;">
+                <h5 class="my-3"> {{job.job_title}}</h5>
+                <p class="text-muted mb-1"> <b> Salary</b> {{job.salary}} /Year</p>
+                <p class="text-muted mb-1" style="font-size:small"> <b > Posted Date</b> {{job.date}}</p><br>
+                <div class="d-flex justify-content-center mb-2">
+                  <a href="{% url 'apply_for_job' job.id %}"><button type="button" class="btn btn-primary">Apply</button></a>
+                   
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Company</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{job.recruiter.company}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Skill</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"> {{job.skill}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Experince</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{job.experince}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Location</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{job.location}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Education</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{job.education}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Start Date</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{job.s_date}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">End Date</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{job.e_date}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Discription</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{job.discription}} </p>
+                  </div>
+                </div>
+                <hr>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+{% include 'footer.html' %}
+{% endblock  %}

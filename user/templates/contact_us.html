@@ -1,0 +1,110 @@
+{% load static %}
+{% block body %}
+{% include 'recruiter_header.html' %}{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>Message !</strong> {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+<!-- Hero 5376089917 Section -->
+
+<div class="jumbotron " >
+    <div class="container text-center ">
+      <h1>Contact Us.. </h1>      
+      <a href="{% url 'user_home' %}" class="btn btn-primary btn-lg">Home</a>
+    </div> 
+  </div>
+
+  <div class="container">
+    <!-- Start: Speakers -->
+    <div class="row me-row content-ct speaker" id="speakers">
+      
+      <div class="co_main">
+        <div class="left_con">
+            <h2 class="row-title text-center"> &#9824 संपर्क करें &#9824</h2><br>
+            <p class="row-title" style=" line-height:2 ; text-align: justify;">हमसे संपर्क करने के लिए निम्नलिखित तरीकों में से कोई एक का उपयोग करें: <br><b>ईमेल: er.divyanshu1@gmail.com</b><br><b>फ़ोन: +91 9532595992</b><br><b>सामाजिक मीडिया:</b> आप हमें निम्नलिखित सामाजिक मीडिया प्लेटफ़ॉर्मों पर भी फॉलो कर सकते हैं:<ul> <b><li><a href="https://github.com/er-divyanshu1/">&#9824 Github</a></li> <li><a href="https://in.linkedin.com/in/er-divyanshu1">&#9824 Linkdin</a></li><li> <a href="https://wa.me/919532595992?text=Hi Divyanshu ! ">&#9824 Whatsapp</a></li></b></ul><br><b>संपर्क पता:</b>यदि आप हमसे व्यक्तिगत रूप से मिलना चाहते हैं, तो आप हमारे कार्यालय का पता निम्नलिखित है: Chilla gauhani Jasra Prayagraj Uttar Pradesh (212107) India. हमें संदेश भेजें. <br>आप दिए गए फ़ॉर्म का उपयोग करके हमें संदेश भेज सकते हैं. कृपया आवश्यक जानकारी प्रदान करें ताकि हम आपके संदेश का उत्तर दे सकें।<br><b>नाम:</b><br><b>ईमेल:</b> <br><b>संदेश:</b><br>हमसे संपर्क करने के लिए धन्यवाद!</p>
+        </div>
+        <div class="right_fom">
+          <h3 class="row-title text-center">  फॉर्म भरे  &#9997</h3><br>
+            <form action="contact_us" method="post"  enctype="multipart/form-data" class="fm">
+              {% csrf_token %}
+                <label class="lb" for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label class="lb" for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label class="lb" for="message">Message:</label>
+                <textarea class="ta" id="message" name="message" required></textarea>
+    
+                <input class="sm" type="submit" value="Submit">
+                <br>
+            </form>
+
+        </div>
+      </div>
+    </div>
+    <style>
+
+.co_main {
+    display: flex;
+    width: 100%;
+    
+  }
+  
+  .left_con {
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    
+  }
+  
+  .right_fom {
+    height: 100%;
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+
+.fm {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+.lb {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="text"],
+input[type="email"],
+.ta {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.ta {
+    height: 150px;
+}
+.sm{
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.sm:hover {
+    background-color: #0056b3;
+}
+    </style>
+
+{% include 'footer.html' %}
+{% endblock  %}

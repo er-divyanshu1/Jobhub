@@ -1,0 +1,51 @@
+{% load static %}
+
+{% block body %}
+{% include 'recruiter_header.html' %}
+{% for message in messages %}
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message !</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+<!-- Hero 5376089917 Section -->
+
+<div class="jumbotron">
+    <div class="container text-center">
+      <h1>Hi {{request.user.first_name}} {{request.user.last_name}}  </h1>      
+      
+      <a href="{% url 'jobpost' %}" class="btn btn-primary btn-lg">Post a Job</a>
+      
+    </div> 
+  </div>
+ 
+  <div class="container bg-3 text-center">    
+    <h3>Letest Post</h3><br>
+   
+    <div class="row">
+      {% for j in job %}
+      <div class="col-sm-2 " style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7); transition: 0.3s; border-radius: 5px;height: auto;width:auto; margin:15px">
+        <h5 style="padding-top:15px">{{j.job_title}}</h5>
+        <img src="{{j.img.url}}"  alt="company logo"class="rounded-circle img-fluid" style="width: 70px;height:70px">
+          <div class="row" text-left>
+              <div class="col-sm-12 text-left ">
+                  <p> <b>Job Id:</b> {{j.id}}   </p>
+                  
+                  <p > Skill : {{j.skill}}   </p>
+                  <p style="font-size: x-small;"> Posted Date : {{j.date}}    </p>
+                  <a href="{% url 'jobpost_edit' j.id %}" class="btn btn-primary btn-lg" style="font-size: small;">Edit</a>
+                  <a href="{% url 'delete' j.id %}" class="btn btn-danger btn-lg" style="font-size: small;">Delete</a><br><br>
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+     
+  </div>
+  <br>
+  
+
+{% include 'footer.html' %}
+{% endblock  %}

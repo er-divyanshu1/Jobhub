@@ -1,0 +1,70 @@
+{% load static %}
+{% block body %}
+{% include 'user_header.html' %}
+{% for message in messages %}
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message !</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+<!-- Hero 5376089917 Section -->
+
+<div class="jumbotron">
+    <div class="container text-center">
+      <h1>Job Detail </h1>      
+      <p>You can read job detail..</p>
+      <a href="{% url 'user_profile' %}" class="btn btn-primary btn-lg">Profile</a>
+    </div> 
+  </div>
+<br>
+
+    <section style="background-color: #eee;">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card mb-4">
+              <div class="card-body text-center">
+                <img src="{{job.img.url}}" alt="avatar"
+                  class="rounded-circle img-fluid" style="width: 150px;">
+                <h5 class="my-3"> {{job.job_title}}</h5>
+                <p class="text-muted mb-1"> <b> Salary</b> {{job.salary}} /Year</p>
+                <p class="text-muted mb-1" style="font-size:small"> <b > Posted Date</b> {{job.date}}</p><br>
+                <div class="d-flex justify-content-center mb-2">                   
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                    <div class="signup-form">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <h3>Upload Your Data</h3>
+                            <br>
+                            
+                            <div class="btn btn-primary ">
+                                <label class="form-label text-white m-1" for="customFile1">Uplode Your Resume</label>
+                                <input type="file" class="form-control d-none" name="resume" id="customFile1" />
+                                </div>
+                                <br><br>
+                    
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                                </div>
+                        </form>
+                    </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+
+{% include 'footer.html' %}
+{% endblock  %}

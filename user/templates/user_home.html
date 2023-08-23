@@ -1,0 +1,47 @@
+{% load static %}
+{% block body %}
+{% include 'user_header.html' %}
+<!-- Hero 5376089917 Section -->
+
+<div class="jumbotron " >
+    <div class="container text-center ">
+      <h1>Hi {{request.user.first_name}} {{request.user.last_name}} </h1>      
+      <p>Some text that represents "Me"...</p>
+      <a href="{% url 'user_profile' %}" class="btn btn-primary btn-lg">Profile</a>
+    </div> 
+  </div>
+<br>
+<br>
+<div class="container text-center  ">
+  <h2> &#10020 Some letest job &#10020</h2><br>
+  <div class="row">
+    {% for t in job %}
+    <div class="col-sm-2 " style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7); transition: 0.3s; border-radius: 5px;height: auto; margin:15px">
+      <h5 style="padding-top:15px"></h5>
+      <img src="{{t.img.url}}" alt="company logo"class="rounded-circle img-fluid" style="width: 80px; height:80px;">
+        <div class="row" text-left>
+            <div class="col-sm-12 text-left " style="background-image: linear-gradient(white, #DDE4FF);">
+                <p style="font-size: small;"><b> Title:</b> {{t.job_title}} </p>
+                <p style="font-size: small;"><b> Company:</b> {{t.recruiter.company}}</p>
+                <p style="font-size: small;"><b> Skill:</b> {{t.skill}}   </p>
+                <p style="font-size: small;"><b> Salary:</b> {{t.salary}}&#x20B9/ Year  </p>
+                {%  if t.id in li %}
+                <p><h5 class="btn btn-warning btn-lg" style="font-size: small; font-weight: bold;">Applied</h5>
+                  <a href="{% url 'applied_job_detail' t.id %}" class="btn btn-success btn-lg" style="font-size: X-small; font-weight: bold; margin-bottom:9px" > Job info </a>
+                </p>
+               
+                {% else %}
+                <a href="{% url 'job_detail' t.id %}" class="btn btn-success btn-lg" style="font-size: small;">Apply</a>
+                <br><br>
+                {% endif %}
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="container">
+      <a href="{% url 'user_joblist' %}" class="btn btn-primary btn-lg">All Job...</a><br><br><br>
+      </div>
+    </div>
+</div>
+{% include 'footer.html' %}
+{% endblock  %}

@@ -1,0 +1,89 @@
+{% load static %}
+{% block body %}
+{% include 'header.html' %}
+<!-- Hero 5376089917 Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1>Welcome to Our Website</h1>
+        <p>Discover Amazing Job and Services</p>
+    </div>
+</section>
+
+<!-- Featured Content Section -->
+
+<div class="container text-center ">
+    <br> <br>
+    <h2> &#10020 Current Placed Student &#10020</h2><br>
+    <div class="row " style="background-image: linear-gradient(white, #DDE4FF);">
+      {% for t in student %}
+      <div class="span6" style=" float: none; margin: 0 auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3); transition: 0.3s; border-radius: 5px; background:white ;height: auto;width:auto; margin:15px">
+        <h5 style="padding-top:15px"></h5>
+        <img src="{{t.img.url}}"  alt="student Image"class="rounded-circle img-fluid" style="width: 100px;">
+          <div class="row" text-left>
+              <div class="col-sm-12 text-left ">
+                  <p style="font-size: small;"><b> Name:</b> {{t.name}} </p>
+                  <p style="font-size: small;"><b> Company:</b> {{t.company}}</p>
+                  <p style="font-size: small;"><b> Post:</b> {{t.post}} </p>
+                  <p style="font-size: small;"><b> Salary:</b> {{t.salary}}&#x20B9/ Year </p>
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <br>
+      <br>
+
+      <div class="container-fluid text-center ">
+        <h2> &#10020 More than 1000 top companies &#10020</h2><br>
+        <div class="row ">
+            <img src="static/img/apple-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/att-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/intel-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/com-logo-2.jpg" alt="Company Image" style="width: 100px;">
+            <img src="static/img/com-logo-3.jpg" alt="Company Image" style="width: 100px;">
+            <img src="static/img/com-logo-4.jpg" alt="Company Image" style="width: 100px;">
+            <img src="static/img/com-logo-5.jpg" alt="Company Image" style="width: 100px;">
+            <img src="static/img/facebook-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/samsung-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/toyota-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/walt-disney-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/amazon-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/google-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/mcdonalds-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/apple-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/att-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/intel-logo.png" alt="Company Image" style="width: 100px;">
+            <img src="static/img/com-logo-2.jpg" alt="Company Image" style="width: 100px;">
+            <img src="static/img/com-logo-3.jpg" alt="Company Image" style="width: 100px;">
+            <img src="static/img/com-logo-4.jpg" alt="Company Image" style="width: 100px;">
+            <img src="static/img/com-logo-5.jpg" alt="Company Image" style="width: 100px;">
+            <img src="static/img/att-logo.png" alt="Company Image" style="width: 100px;">
+        </div> 
+      </div><br><br>
+
+<div class="container-fluid  ">
+  <h2> &#10020 Some letest job &#10020</h2><br>
+  <div class="row">
+    {% for t in job %}
+    <div class="col-sm-2 " style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7); transition: 0.3s; border-radius: 5px;height: auto; margin:15px">
+      <h5 style="padding-top:15px"></h5>
+      <img src="{{t.img.url}}" alt="company logo"class="rounded-circle img-fluid" style="width: 50px;">
+        <div class="row" text-left>
+            <div class="col-sm-12 text-left " style="background-image: linear-gradient(white, #DDE4FF);">
+                <p style="font-size: small;"><b> Title:</b> {{t.job_title}} </p>
+                <p style="font-size: small;"><b> Company:</b> {{t.recruiter.company}}</p>
+                <p style="font-size: small;"><b> Skill:</b> {{t.skill}}   </p>
+                <p style="font-size: small;"><b> Salary:</b> {{t.salary}}&#x20B9/ Year  </p>
+                <a href="{% url 'job_detail' t.id %}" class="btn btn-success btn-lg" style="font-size: small;">Apply</a><br><br>
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="container">
+      <a href="{% url 'job_list' %}" class="btn btn-primary btn-lg">All Job...</a><br><br><br>
+      </div>
+    </div>
+  </div>
+{% include 'footer.html' %}
+{% endblock  %}

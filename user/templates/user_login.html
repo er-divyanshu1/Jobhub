@@ -1,0 +1,52 @@
+{% load static %}
+{% block body %}
+{% include 'header.html' %}
+{% for message in messages %}
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message !</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+<br>
+<div class=" container" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7); transition: 0.3s; border-radius: 5px;height: auto;width: 400px;" >
+    <br>
+    <h2 style="text-align:center;"> User Login </h2>
+    <br>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="email" id="form2Example1" name="email" class="form-control" />
+          <label class="form-label" for="form2Example1">Email address</label>
+        </div>
+      
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input type="password" id="form2Example2" name="pass" class="form-control" />
+          <label class="form-label" for="form2Example2">Password</label>
+        </div>
+      
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+          <div class="col d-flex justify-content-center">
+          <div class="col">
+            <!-- Simple link -->
+            <a href="#!">Forgot password?</a>
+          </div>
+        </div>
+        <br/><br/>
+       
+      
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4" >Sign in</button>
+      
+        <!-- Register buttons -->
+        <div class="text-center">
+          <p>Not a member? <a href="{% url 'user_signup' %}">Register</a></p>
+        </div>
+      </form>
+      <br>
+<div>
+{% endblock  %}

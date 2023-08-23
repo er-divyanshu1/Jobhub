@@ -1,0 +1,59 @@
+{% load static %}
+{% block body %}
+{% include 'header.html' %}
+{% for message in messages %}
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message !</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+<br>
+<div class=" container" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7); transition: 0.3s; border-radius: 5px;height: auto;width: 600px;" >
+    <br>
+    <div class="signup-form">
+
+       
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Register</h2>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
+                    <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+                </div>        	
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+            </div>
+            <div class="form-group">
+                <input type="phonenumber" class="form-control" name="phone" placeholder="Phone Number" required="required">
+            </div>
+            <p> Gender:</p>
+            <input type="radio" name="gender" value="male" checked> Male
+            <input type="radio" name="gender" value="female"> Female
+            <br><br>
+            <!--Image-->
+
+            <div class="btn btn-primary ">
+            <label class="form-label text-white m-1" for="customFile1">Choose Your Picture Picture</label>
+            <input type="file" class="form-control d-none"  required="required" name="image" id="customFile1" />
+            </div>
+            <br><br>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="password" class="form-control" name="pass1" placeholder="Password" required="required"></div>
+                    <div class="col"><input type="password" class="form-control" name="pass2" placeholder="Confirm Password" required="required"></div>
+                </div>        	
+            </div>       
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
+            </div>
+        </form>
+        <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
+    </div>
+    <br>
+</div>
+{% endblock  %}

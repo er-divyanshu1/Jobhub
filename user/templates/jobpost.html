@@ -1,0 +1,67 @@
+{% load static %}
+{% block body %}
+{% include 'recruiter_header.html' %}
+{% for message in messages %}
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message !</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+<br>
+<div class=" container" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7); transition: 0.3s; border-radius: 5px;height: auto;width: 600px;" >
+    <br>
+    <div class="signup-form">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Post A job</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Job_title" placeholder="Job Title" required="required">
+            </div>        	
+             
+            <div class="form-group">
+                <input type="text" class="form-control" name="salary" placeholder="Salary" required="required">
+            </div> 
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><label>Start Date:</label><input type="date" class="form-control" name="sdate" placeholder="Start Date" required="required"></div>
+                    <div class="col"> <label>Last Date:</label><input type="date" class="form-control" name="edate" placeholder="Last Date" required="required"></div>
+                </div>        	
+            </div>
+           
+            <div class="form-group">
+                <input type="text" class="form-control" name="location" placeholder="Location" required="required">
+            </div> 
+            <div class="form-group">
+                <input type="text" class="form-control" name="education" placeholder="Education" required="required">
+            </div> 
+            <div class="form-group">
+                <input type="text" class="form-control" name="skill" placeholder="Skill" required="required">
+            </div> 
+            <div class="form-group">
+                <input type="number" class="form-control" name="experince" placeholder="Experince (In Year)" required="required">
+            </div> 
+            
+            <div class="form-group">
+                <div class="row">
+                <div class="col"><label>Discription:</label><textarea  class="form-control" name="discription" placeholder="Discription" required="required"></textarea>
+                </div></div>
+                </div>
+            <div class="btn btn-primary ">
+                <label class="form-label text-white m-1" for="customFile1">Choose Your Company Logo</label>
+                <input type="file" class="form-control d-none" name="image" id="customFile1" />
+                </div>
+                <br><br>
+    
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">post</button>
+                </div>
+        </form>
+       
+    </div>
+    <br>
+</div>
+    
+
+{% endblock  %}

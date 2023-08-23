@@ -1,0 +1,18 @@
+Admin user and password.
+Username: Divyanshu
+Password: 12345
+
+Technology: 
+		Frontend: HTMl, CSS, Bootstrap< JS, Jquery.
+		Backend: SQLigth.
+		Framework: Python Djando.
+Module:
+		User: Login, SignUp, FindJob, Edit Profile,Change Password, Uploaad Resume, User can apply Any Job etc.
+		Recruiter: Login, SignUp, Post a Job, Edit Posted Job, Delete Job, Views Applied Condidate, Edit Profile, Change Password, etc.
+		Admin: See all data, Post selected Student, Post Testimonials, Give access  pending recruiter , Delete any data etc.
+
+About me:
+	Name: Divyanshu Yadav
+	Email: er.divyanshu1@gmail.com
+	Phone: +91 9532595992
+	Education: B.tech

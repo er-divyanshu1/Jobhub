@@ -1,0 +1,50 @@
+{% load static %}
+{% block body %}
+{% include 'user_header.html' %}
+{% for message in messages %}
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message !</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+<br>
+<div class=" container" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7); transition: 0.3s; border-radius: 5px;height: auto;width: 600px;" >
+    <br>
+    <div class="signup-form">
+
+       
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2> Update your profile</h2>
+            <br/>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="text" value="{{request.user.first_name}}" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
+                    <div class="col"><input type="text" value="{{request.user.last_name}}" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+                </div>        	
+            </div>
+            <div class="form-group">
+                <input type="phonenumber" class="form-control" value="{{recuriter.mobile}}" name="phone" placeholder="Phone Number" required="required">
+            </div>
+            <p> Gender:</p>
+            <input type="radio" name="gender" value="male" checked> Male
+            <input type="radio" name="gender" value="female"> Female
+            <br><br>
+            <!--Image-->
+            <img src="{{recuriter.image.url}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+            <div class="btn btn-primary ">
+            <label class="form-label text-white m-1" for="customFile1">Change Your Picture Picture</label>
+            <input type="file" class="form-control d-none" name="image" id="customFile1" />
+            </div>
+            <br><br>      
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Update</button>
+            </div>
+        </form>
+    </div>
+    <br>
+</div>
+{% endblock  %}

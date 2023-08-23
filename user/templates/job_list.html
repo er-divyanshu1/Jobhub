@@ -1,0 +1,47 @@
+{% load static %}
+{% block body %}
+{% include 'header.html' %}
+
+<!-- Hero 5376089917 Section -->
+
+<div class="jumbotron">
+    <div class="container text-center">
+      <h1>All Job </h1>      
+      
+    </div> 
+  </div>
+
+<div class="container text-center">
+  <h3>Some letest job </h3><br>
+<table class="table table-hover">
+  <thead>
+    <tr >
+      <th scope="col">Sr. No.</th>
+      <th scope="col">JobTitle</th>
+      <th scope="col">Comany Name</th>
+      <th scope="col">Skill</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Last Date</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in job %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{t.job_title}}</td>
+      <td>{{t.recruiter.company}}</td>
+      <td>{{t.skill}}</td>
+      <td>{{t.salary}}</td>
+      <td>{{t.e_date}}</td>
+      <td><a href="{% url 'user_login' %}" class="btn btn-success btn-lg" style="font-size: small;">Login to apply</a></td>
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+  
+
+{% include 'footer.html' %}
+{% endblock  %}
